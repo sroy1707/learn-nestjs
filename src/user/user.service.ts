@@ -19,6 +19,10 @@ export class UserService {
     private readonly userRepo: Repository<User>,
   ) {}
 
+  findByEmail(email: string) {
+    return this.userRepo.findOne({ where: { email } });
+  }
+
   async create({
     name,
     email,
